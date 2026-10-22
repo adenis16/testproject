@@ -167,14 +167,15 @@ def set_run_font(run, size=None, bold=None, italic=None):
     if rfonts is None:
         rfonts = OxmlElement("w:rFonts")
         rpr.append(rfonts)
+    if italic is not None:
+        run.font.italic = italic
     for attr in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
         rfonts.set(qn(attr), FONT)
     if size is not None:
         run.font.size = Pt(size)
     if bold is not None:
         run.font.bold = bold
-    if italic is not None:
-        run.font.italic = italic
+   
     run.font.color.rgb = BLACK
 
 
@@ -193,8 +194,8 @@ def style_document(doc):
     pf = normal.paragraph_format
     pf.line_spacing = 1.5
     pf.space_after = Pt(0)
-    pf.space_before = Pt(0)
     pf.first_line_indent = Cm(1.25)
+    pf.space_before = Pt(0)
     pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     for s in doc.sections:
@@ -353,7 +354,7 @@ def build():
 
     body_par(doc, "Основной функционал агента:")
     body_list(doc, [
-        "агент отвечает на вопросы о текущей погоде и прогнозе в указанном населённом пункте;",
+        "агент отвечает на вопросы о погоде и прогнозе в указанном населённом пункте;",
         "при каждом запросе выполняется веб-поиск актуальных метеорологических данных;",
         "поддерживается прогноз по часам, на следующий день, на выходные и на неделю;",
         "агент сообщает температуру и ощущаемую температуру, облачность, осадки и ветер;",
