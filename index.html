@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Погодный помощник — спросите о погоде в любом городе в чате." />
+  <title>Погодный помощник</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%85%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow glow--one" aria-hidden="true"></div>
+  <div class="glow glow--two" aria-hidden="true"></div>
+
+  <main class="hero">
+    <div class="hero__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="56" height="56" fill="none">
+        <circle cx="24" cy="24" r="11" fill="#FFC93C" />
+        <path d="M24 5v4M24 39v4M5 24h4M39 24h4M11 11l3 3M34 34l3 3M37 11l-3 3M14 34l-3 3"
+              stroke="#FFC93C" stroke-width="3" stroke-linecap="round" />
+        <path d="M30 52h20a9 9 0 0 0 0-18 12 12 0 0 0-22.6-3.4A8 8 0 0 0 30 52Z"
+              fill="#fff" opacity=".95" />
+      </svg>
+    </div>
+
+    <h1 class="hero__title">Погодный помощник</h1>
+    <p class="hero__subtitle">
+      Спросите о погоде в любом городе — температура, осадки и ветер на сегодня,
+      завтра или на неделю вперёд.
+    </p>
+
+    <button class="cta" type="button" data-open-chat>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+        <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 20l1-4.8A8.4 8.4 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5Z"
+              stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+      </svg>
+      <span>Открыть чат</span>
+    </button>
+
+    <ul class="examples" aria-label="Примеры вопросов">
+      <li>Погода в Москве сейчас</li>
+      <li>Будет ли дождь завтра?</li>
+      <li>Прогноз на неделю</li>
+    </ul>
+
+    <p class="hint" data-chat-status>Отвечает онлайн-ассистент</p>
+  </main>
+
+  <!-- Виджет чата Yandex AI Studio -->
+  <script
+    src="https://widget.aistudio.yandexcloud.net/scripts/widget-loader.js?channel-id=aac4l9mnuror24bi0n68"
+    data-locale="ru"
+    async
+  ></script>
+  <script src="app.js"></script>
+</body>
+</html>
